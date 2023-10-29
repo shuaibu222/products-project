@@ -2,9 +2,7 @@
 
 This is where all my confuguration and setup files are:
 
-1) docker-compose.yml file which contains all services images
-2) Makefile for automating dvelopment
-3) mongo file which is a volume for the data of the services
+1) docker-compose.yml file which manage the containers
 
 ## The Stack
 
