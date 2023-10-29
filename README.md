@@ -1,10 +1,8 @@
-### Project Workflow for microservices
+## Project Workflow for microservices
 
-This is where all my confuguration and setup files are:
+This is where all my confuguration and setup files are for my product-catalog microservices
 
-1) docker-compose.yml file which manage the containers
-
-## The Stack
+# The Stack
 
 1) Go programming language
 2) MongoDB as database
@@ -12,7 +10,7 @@ This is where all my confuguration and setup files are:
 4) Docker and docker-compose for local orchestration
 5) Kubernetes for deployment
 
-## How to run locally
+# How to run locally
 
 1) Clone this repositories
 2) run docker compose up
