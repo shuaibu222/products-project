@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+
+    broker:
+      container_name: broker
+      image: 'shuaibu12345/broker:1.0.0'
+      ports:
+        - "9000:80"
+      deploy:
+        mode: replicated
+        replicas: 1
+      environment:
+        JWT_SECRET: 6edefcff66e87f00f21a7b37158d98ab7  
+
+    products:
+      container_name: products
+      image: 'shuaibu12345/products:1.0.0'
+      deploy:
+        mode: replicated
+        replicas: 1
+      depends_on: 
+        - mongo
+      environment:
+        USERNAME: shuaibu
+        PASSWORD: shuaibu12345  
+
+
+    users:
+      container_name: users
+      image: 'shuaibu12345/users:1.0.0'
+      deploy:
+        mode: replicated
+        replicas: 1
+      depends_on: 
+        - mongo
+      environment:
+        USERNAME: shuaibu
+        PASSWORD: shuaibu12345
+    
+    reviews:
+      container_name: reviews
+      image: 'shuaibu12345/reviews:1.0.0'
+      deploy:
+        mode: replicated
+        replicas: 1
+      depends_on: 
+        - mongo
+      environment:
+        USERNAME: shuaibu
+        PASSWORD: shuaibu12345  
+      
+  
+    mongo:
+      container_name: mongo
+      image: 'mongo'
+      ports:
+        - "2701:27017"
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: shuaibu
+        MONGO_INITDB_ROOT_PASSWORD: shuaibu12345
+      volumes:
+        - ./mongo/:/data/db
