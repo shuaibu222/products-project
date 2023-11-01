@@ -4,12 +4,14 @@ services:
 
     broker:
       container_name: broker
-      image: 'shuaibu12345/broker:1.0.0'
+      image: 'shuaibu12345/broker:1.0.1'
       ports:
         - "9000:80"
       deploy:
         mode: replicated
         replicas: 1
+      depends_on:
+        - rabbitmq
       environment:
         JWT_SECRET: 6edefcff66e87f00f21a7b37158d98ab7  
 
@@ -40,12 +42,13 @@ services:
     
     reviews:
       container_name: reviews
-      image: 'shuaibu12345/reviews:1.0.0'
+      image: 'shuaibu12345/reviews:1.0.1'
       deploy:
         mode: replicated
         replicas: 1
       depends_on: 
         - mongo
+        - rabbitmq
       environment:
         USERNAME: shuaibu
         PASSWORD: shuaibu12345  
@@ -61,3 +64,14 @@ services:
         MONGO_INITDB_ROOT_PASSWORD: shuaibu12345
       volumes:
         - ./mongo/:/data/db
+    
+    rabbitmq:
+      container_name: rabbitmq
+      image: 'rabbitmq'
+      ports:
+        - "5672:5672"
+      deploy:
+        mode: replicated
+        replicas: 1
+      volumes:
+        - ./rabbitmq/:/var/lib/rabbitmq/
