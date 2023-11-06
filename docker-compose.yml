@@ -4,7 +4,7 @@ services:
 
     broker:
       container_name: broker
-      image: 'shuaibu12345/broker:1.0.1'
+      image: 'shuaibu12345/broker:latest'
       ports:
         - "9000:80"
       deploy:
@@ -17,7 +17,7 @@ services:
 
     products:
       container_name: products
-      image: 'shuaibu12345/products:1.0.0'
+      image: 'shuaibu12345/products:latest'
       deploy:
         mode: replicated
         replicas: 1
@@ -30,7 +30,7 @@ services:
 
     users:
       container_name: users
-      image: 'shuaibu12345/users:1.0.0'
+      image: 'shuaibu12345/users:latest'
       deploy:
         mode: replicated
         replicas: 1
@@ -42,7 +42,7 @@ services:
     
     reviews:
       container_name: reviews
-      image: 'shuaibu12345/reviews:1.0.1'
+      image: 'shuaibu12345/reviews:latest'
       deploy:
         mode: replicated
         replicas: 1
