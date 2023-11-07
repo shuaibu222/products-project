@@ -9,7 +9,6 @@ This is where all my confuguration and setup files are for my product-catalog mi
 3) gRPC, REST APIs
 4) Docker and docker-compose for local orchestration
 5) RabbitMQ
-5) Kubernetes for deployment
 
 # How to run locally
 
