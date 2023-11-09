@@ -52,6 +52,19 @@ services:
       environment:
         USERNAME: shuaibu
         PASSWORD: shuaibu12345  
+
+
+    notifications:
+      container_name: notifications
+      image: 'shuaibu12345/notifications:latest'
+      deploy:
+        mode: replicated
+        replicas: 1
+      depends_on: 
+        - rabbitmq
+      environment:
+        GMAIL_SECRET: fjnmxuxrfvfrunrd
+        GMAIL_ACCOUNT: shuaibuabdulkadir222@gmail.com  
       
   
     mongo:
