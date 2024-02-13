@@ -10,7 +10,6 @@ This is where all my confuguration and setup files are for my product-catalog mi
 4) Docker and docker-compose for local orchestration
 5) RabbitMQ
 6) K8s
-7) Nginx
 
 # How to run locally
 
